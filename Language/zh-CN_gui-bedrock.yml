@@ -4,6 +4,9 @@
 # #
 # # Each button can have an icon. You can either provide a URL or path to the texture in the resource pack.
 # # More information: https://github.com/Angeschossen/PluginFrameworkAPI/wiki/Bedrock-Menus
+#
+# Lands - zh-CN
+# Translate by chencu
 
 general:
   wYes: '&2是'
@@ -30,18 +33,18 @@ common:
            &8• &r当前租户:&3 {player}
     role:
       failure_priority:
-        title: Role Priority
+        title: 权限组优先级
         content: |
-          &cYou're not allowed to edit settings of this role.
-           &8• &rIt has a higher priority than yours or you're a member of it.
+          &c你无法编辑该权限组
+           &8• &r该权限组优先级高于您，或您已经是该权限组.
       failure_nation:
-        title: Managed by Nation
+        title: 国家管理
         content: |
-          &cThis role is partly managed by your nation.
-            &8• &rOnly the nations capital can change this setting: &e/{cmd}
+          &c该权限组由国家管理.
+            &8• &r仅国家首都可以修改该权限组: &e/{cmd}
       failure_max-roles:
-        title: Max. Roles
-        content: '&cThis area reached the maximum amount of&4 {max} &croles.'
+        title: 权限组上限
+        content: '&c该区域到达了f&4 {max} &c个角色权限组上限.'
   
   items:
     default:
