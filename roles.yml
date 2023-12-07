@@ -1,0 +1,248 @@
+# 在这个文件中你可以编辑/新增初始角色.
+# 请注意每个配置部分(角色部分)的名字和角色名字必须是唯一的.
+# 你必须输入有效的YAML格式. 你可以将这个文件中的内容粘贴到这个网站上以验证你的格式是否正确: https://yaml-online-parser.appspot.com
+# 有关角色和他们的权限可以在这里查看相关注释: https://github.com/Angeschossen/Lands/wiki/Roles-and-their-Flags
+# 请注意更改此文件中的选项可能需要重载/重启服务器.
+
+# 初始领地角色. 你可以添加你自己的初始角色.
+# 角色的优先级逐级下降 (最高优先级角色 -> 最低).
+land:
+  # 角色设置菜单中应显示哪些权限?
+  # 你仍然可以在下面设置默认值, 并通过从此列表中删除他们来隐藏他们.
+  display:
+    - BLOCK_PLACE
+    - BLOCK_BREAK
+    - BLOCK_IGNITE
+    - PLANT
+    - HARVEST
+    - TRAMPLE_FARMLAND
+    - SHEAR
+    - ITEM_PICKUP
+    - INTERACT_GENERAL
+    - INTERACT_CONTAINER
+    - INTERACT_DOOR
+    - INTERACT_TRAPDOOR
+    - INTERACT_MECHANISM
+    - INTERACT_VILLAGER
+    - VEHICLE_USE
+    - ATTACK_PLAYER
+    - ATTACK_ANIMAL
+    - ATTACK_MONSTER
+    - LAND_ENTER
+    - FLY
+    - ELYTRA
+    - SPAWN_TELEPORT
+    - ENDER_PEARL
+    - PLAYER_TRUST
+    - PLAYER_SETROLE
+    - PLAYER_UNTRUST
+    - PLAYER_BAN
+    - LAND_CLAIM
+    - LAND_CLAIM_BORDER
+    - SPAWN_SET
+    - BALANCE_WITHDRAW
+    - AREA_ASSIGN
+    - WAR_MANAGE
+    - SETTING_EDIT_LAND
+    - SETTING_EDIT_ROLE
+    - SETTING_EDIT_TAXES
+    - SETTING_EDIT_VARIOUS
+
+  # 你可以在这里添加自己的默认角色和编辑现有角色. 如果玩家拥有所需的权限他们也可以在自己的领地菜单中创建新的角色.
+  # 注意: 角色的顺序将影响角色的初始优先级. 这意味着顶部的角色优先级最高, 底部角色的优先级最低.
+  ##########################################################################################
+  # 每当一个新的权限被添加到领地上时, 如果由权限作者指定, 所有的现有领地都会.              #
+  # 但是对于未来的领地创建, 你需要在这里进行正确的配置.                                    #
+  # 如果新权限可用, 领地系统将始终在控制台输出和游戏中的管理员账户上向你发送提示.          #
+  # 你可以使用指令 /lands admin land <land | *> resetFlag <flag | all> 强制同步/重置权限.  #
+  ###########################################################################################
+  roles:
+    # 注意: 所有者角色不能被删除.
+    owner:
+      name: '&4&l所有者'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmJjMzExYTRmYjljNDkzODliNGY0NThjMjllOTY4MzI0YzU4MjNiOGE5OWVhZGUxNzQ3ODY2Yzk1YjA2NGEifX19'
+      # 初始权限值. 请注意这些修改只适用于新的领地创建. 所有者角色的权限只能由服务器的管理员切换.
+      # 使用 ALL 而不是列表将为该角色提供所有玩家权限. 不会为此角色设置仅用于管理员领地的权限.
+      default: 'ALL'
+
+    # 该角色不可删除，但只有在租用区域或在管理区域时才可见.
+    tenant:
+      name: '&6&lTenant'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2UzZmVhODhlMmI4NWNjZGZiMWIzODcyOTgyZWFlMTY0ODlhODRjNjgxYmQ5ZmU0ZmU5YmM4YmNjMmU1In19fQ=='
+      # 默认权限值，请注意，这些值仅适用于新租用的土地.
+      # 只有管理员土地可以在游戏中更改这些权限，这可以防止土地滥用这些权限，出售租户没有权限做任何事情的区域.
+      default:
+        - BLOCK_PLACE
+        - BLOCK_BREAK
+        - PLANT
+        - HARVEST
+        - SHEAR
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_CONTAINER
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - BLOCK_IGNITE
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - ELYTRA
+        - LAND_ENTER
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - VEHICLE_USE
+        - ITEM_PICKUP
+        - TRAMPLE_FARMLAND
+        - PLAYER_TRUST
+        - PLAYER_SETROLE
+        - PLAYER_UNTRUST
+        - PLAYER_BAN
+
+    admin:
+      name: '&c&l管理员'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2UzZmVhODhlMmI4NWNjZGZiMWIzODcyOTgyZWFlMTY0ODlhODRjNjgxYmQ5ZmU0ZmU5YmM4YmNjMmU1In19fQ=='
+      # 该角色的成员是否应该自动添加到子区域?
+      parent: true
+      # 默认权限值. 这些只适用于新领地的创建. 如果权限列出在上面的 'display' 中, 玩家稍后可以在他们的领地菜单中更改他们.
+      default:
+        - BLOCK_PLACE
+        - BLOCK_BREAK
+        - PLANT
+        - HARVEST
+        - SHEAR
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_CONTAINER
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - BLOCK_IGNITE
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - ELYTRA
+        - LAND_ENTER
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - VEHICLE_USE
+        - ITEM_PICKUP
+        - TRAMPLE_FARMLAND
+        - PLAYER_TRUST
+        - PLAYER_SETROLE
+        - PLAYER_UNTRUST
+        - PLAYER_BAN
+        - SETTING_EDIT_LAND
+        - SETTING_EDIT_ROLE
+
+    # 注意: 成员角色不能被删除.
+    member:
+      name: '&e&l成员'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFhZGZkZjA3MTE3NWFkYWQ2NDRmZTRiM2E5NzMxYWM2YThmYTQ3NTExNjJlODEzOGM4OTlmYmFhNWZmMGI5In19fQ=='
+      # 默认权限值. 这些只适用于新领地的创建. 如果权限列出在上面的 'display' 中, 玩家稍后可以在他们的领地菜单中更改他们.
+      default:
+        - BLOCK_PLACE
+        - BLOCK_BREAK
+        - PLANT
+        - HARVEST
+        - SHEAR
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_CONTAINER
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - BLOCK_IGNITE
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - ELYTRA
+        - LAND_ENTER
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - TRAMPLE_FARMLAND
+        - VEHICLE_USE
+        - ITEM_PICKUP
+
+    nation:
+      name: '&9&l国家'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU1ODdkYTdmZTczMzZlOGFiOWY3OTFlYTVlMmNmYzhhODI3Y2E5NTk1NjdlYjlkNTNhNjQ3YmFiZjk0OGQ1In19fQ=='
+      # 默认权限值. 这些只适用于新领地的创建. 如果权限列出在上面的 'display' 中, 玩家稍后可以在他们的领地菜单中更改他们.
+      default:
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - ELYTRA
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - LAND_ENTER
+        - VEHICLE_USE
+        - ITEM_PICKUP
+        - LAND_CLAIM_BORDER
+
+      # 一个国家可以控制其领地的国家角色.
+      # 你可以在这里指定改国能为其领地的国家角色切换开关的权限.
+      # 国家角色可以在国家菜单 -> /nations menu 中编辑
+      toggleable-by-nation:
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - LAND_ENTER
+        - VEHICLE_USE
+        - ITEM_PICKUP
+        - LAND_CLAIM_BORDER
+
+    ally:
+      name: '&a&l盟友'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU2NzI1MWQ3MWI2ZjNhNGRjMDNmYTAxZTQ0MWRlN2VkZjkzNTQ3OTRlNzRhZWMxNmMwNGYxNDFkZGYzMWM3MCJ9fX0='
+      # 默认权限值. 这些只适用于新领地的创建. 如果权限列出在上面的 'display' 中, 玩家稍后可以在他们的领地菜单中更改他们.
+      default:
+        - INTERACT_GENERAL
+        - INTERACT_DOOR
+        - INTERACT_TRAPDOOR
+        - INTERACT_MECHANISM
+        - INTERACT_VILLAGER
+        - ATTACK_PLAYER
+        - ATTACK_ANIMAL
+        - ATTACK_MONSTER
+        - FLY
+        - SPAWN_TELEPORT
+        - ENDER_PEARL
+        - LAND_ENTER
+        - VEHICLE_USE
+        - ITEM_PICKUP
+        - LAND_CLAIM_BORDER
+
+    # 注意: 访客角色不能被删除.
+    visitor:
+      name: '&7&l访客'
+      # 该图标支持自定义头颅纹理 (例如: https://minecraft-heads.com/) 以及普通的材质值.
+      icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZThiOGM2YTQ2ZDg3Y2Y4NmE1NWRmMjE0Y2Y4NGJmNDVjY2EyNWVkYjlhNjc2ZTk2MzY0ZGQ2YTZlZWEyMzViMyJ9fX0='
+      # 默认权限值. 这些只适用于新领地的创建. 如果权限列出在上面的 'display' 中, 玩家稍后可以在他们的领地菜单中更改他们.
+      default:
+        - LAND_ENTER
+        - ITEM_PICKUP
+        - ATTACK_MONSTER

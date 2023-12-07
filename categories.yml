@@ -1,0 +1,29 @@
+# 在这个文件中你可以配置类别. 
+# 领地类别可以在领地的各种选项的菜单中设置. 
+# 这有助于玩家在 /lands list 菜单中查找商店用地等特殊领地类型
+# 注意: 该文件不能通过重载指令 /lands reload 进行重载.
+# 你必须重载或重启你的服务器来使修改生效.
+
+land:
+  enabled: true
+  categories:
+    members:
+      enabled: true
+      name: '&e招人中 ☺'
+      description:
+        - '&7正在积极招收新人的领地'
+    shop:
+      enabled: true
+      name: '&c商店 $'
+      description:
+        - '&7包含玩家开设的商店的领地'
+    pvp:
+      enabled: true
+      name: '&4竞技场 ⚔'
+      description:
+        - '&7用于PVP竞技的领地'
+    mobfarm:
+      enabled: true
+      name: '&9刷怪塔'
+      description:
+        - '&7用于放置刷怪塔的领地'
