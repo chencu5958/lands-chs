@@ -1,58 +1,55 @@
-# Explanation for players: https://github.com/Angeschossen/Lands/wiki/Nations
+# Wiki: https://github.com/Angeschossen/Lands/wiki/Nations
 
-# Enable nations?
-# NOTE: This setting requires server reload / restart.
+# 是否启用国家? (使用指令: /Nations)
+# 注意: 此设置需要重载/重启服务器.
 enabled: true
 
-# Customize the creation
+# 自定义创建
 creation:
-  # Set the creation cost
+  # 设置创建成本
   costs: 20000.0
-  # Require a specific land level to be able to create a nation. You can set this to 1 in order to disable this.
-  # NOTE: This must be the section name of the specific level.
-  # This option requires server reload / restart.
+  # 需要特定的领地等级才能创建一个国家, 你可以将其设置为 1 以禁用此功能.
+  # 注意: 这必须是特定领地等级的部分名称.
+  # 此选项需要服务器重载/重启.
   level: 5
 
-# /nations rename options
+# /Nations rename 国家重命名选项
 rename:
-  # Costs x each time the name is changed.
+  # 国家单次重命名成本.
   costs_2: 10000.0
-  # Nation needs to wait x until they can change their name again.
-  cooldown_rename_time: 15m
+  # 重命名冷却时间.
+  cooldown_rename_time: 1d
 
 
-# Land related settings
+# 土地相关设置
 land:
-  # Set a maximum distance between the capital and the land that they want to invite to their nation.
-  # 0 disables this option.
+  # 设置首都与想要邀请加入其国家的土地之间的最大距离.
+  # 设置 0 为禁用.
   max-distance: 0
 
 
-# Let lands, which are part of a nation pay taxes.
-# If a land is member of a nation they won't pay upkeep to the server anymore. Instead
-# they will pay taxes to the nation. To prevent abuse of this, it's recommended enabling nations upkeep,
-# so the nation needs to pay upkeep to the server depending on their size.
-# NOTE: This option is bound to the upkeep option from config.yml. Upkeep needs to be enabled in config.yml.
+# 让属于国家一部分的领地纳税.
+# 如果领土土地是一个国家的成员, 他们将不再需要向服务器支付维护费用.
+# 但是同时, 他们就需要向国家纳税. 防止有人滥用该功能,
+# 建议同时启用国家维护费用的收缴, 让国家需要根据其领土大小向服务器支付维护费用.
+# 注意: 这个选项绑定到配置文件 config.yml 的维护设置, 因此需要在配置文件 config.yml 启用维护选项.
 taxes:
-  # Set the minimum tax value per chunk.
-  min: 0
-  # Set the maximum tax value the nation should be able to set PER CHUNK of their lands?
-  # NOTE: Final payment would be for each land: land size (chunks) * cost
-  max: 5.0
-  # Use the configured land upkeep as the minimum amount
-  # Should a land be removed from the nation, if it can't pay the tax?
+  # 设置国家每一块领地能够设定的最高税额的数量.
+  # 注意: 每块领地最终征收的金额应该为: 领地面积 (区块数) * 花费
+  max-value: 5.0
+  # 使用配置的领地维护费用作为最低金额.
+  # 如果一块领地的资产不足以交税是否应该将该领地从国家中移除?
   remove-land: true
 
 
-# Let a nation pay money to the server in order to keep it up.
+# 让一个国家向服务器缴纳维护费用以保持其正常运行.
 upkeep:
   enabled_4: true
-  # Set the upkeep costs for a nation per chunk.
+  # 设定一个国家领土范围内每个区块的维护成本.
   per-chunk: 3.0
-  # Should a nation get deleted if it can't pay the upkeep costs?
-  # NOTE: This does not delete any lands.
+  # 如果一个国家不能支付维护费用是否将该国家删除?
+  # 注意: 这个操作仅删除国家而不会删除任何领地.
   delete-nation: true
-  # Exclude nation from upkeep, if it was recently created?
-  # This excludes nations from their first upkeep payment, if they're younger than x time.
+  # 是否将新创建的国家排除在需缴纳维护费用的国家名单之外一段时间?
+  # 这不包括那些创建时长小于 x 时间的国家的首次维护费用缴纳.
   nopay_time: 2d
-# GFCs3wvYzUm47/fjIZpwPbRdVjWcNhzJcxbwZ84PQgL//OPhYdkNJLFLyZRBhepnwI3eJkP0u7tOskNEtvSacVkZ6bPUuuVogXaQdDXU31w=
