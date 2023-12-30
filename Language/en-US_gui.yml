@@ -1475,6 +1475,11 @@ gui:
           - '   &7Unlocked: {unlocked}'
           name: '&6&lOpen Doors: {enabled}'
           material: IRON_DOOR
+        child_failure_allow-edit:
+          name: '&4&lFlag not Toggleable'
+          lore:
+          - '&cThe server configured this flag'
+          - '&cto not be toggleable for this role.'
   war-declaration_tribute:
     title: '&8Tribute'
     items:

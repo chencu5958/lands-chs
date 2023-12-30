@@ -1443,6 +1443,10 @@ gui:
           - ' &8• &7这可以防止你'
           - '   &7意外剥夺自己的权限'
           name: '&4&l所有者角色'
+        child_failure_allow-edit:
+          name: '&4&l标记不可切换'
+          lore:
+          - '&c该角色权限标记已被服务器配置为不可切换'
   war-declaration_tribute:
     title: '&8赔款'
     items:
@@ -1700,11 +1704,11 @@ gui:
           - '   &7获取权限以解除当前限制'
         child_failure_tenant:
           lore:
-          - '&cTenants can''t be untrusted.'
-          - '&cand their roles can''t be changed.'
-          - ' &8• &7Tenants can be removed by'
-          - '   &7executing &e/{cmd}&7.'
-          name: '&4&lTenant'
+          - '&c无法取消对租户的信任'
+          - '&c它们的角色权限无法被修改'
+          - ' &8• &7可以通过指令移除租户'
+          - '   &7指令 &e/{cmd}&7.'
+          name: '&4&l租户'
   list_admin_lands:
     title: '&8管理员领地'
     items:

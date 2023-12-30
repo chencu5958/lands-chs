@@ -200,6 +200,12 @@ general:
         paid: '&7Paid upkeep cost: {0} New balance: {1}'
         nation: '&cNation {0} failed to pay the upkeep of {1}, from their capitals
           balance, and has been deleted.'
+        alert:
+          normal: '&cYou need to pay&4 {0}&c in upkeep in {1}, but {2} has insufficient
+            funds.'
+          unclaim: '&cYou need to pay&4 {0}&c in upkeep in {1}, but {2} has insufficient
+            funds. &7This will lead to some of the latest claims being unclaimed.
+            Make sure to deposit some money to prevent this from happening.'
       bank:
         withdraw: '&cPlayer {0} withdrew {1}. New balance: {2}'
         deposit: '&7Player {0} deposited {1}. New balance: {2}'
