@@ -2,4 +2,4 @@
  
 ## [chencu](htpps://github.com/chencu5958)翻译
 
-## 适配版本Lands v6.42.13
+## 适配版本Lands v6.44.3
