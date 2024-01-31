@@ -1,100 +1,23 @@
-# Resource page: https://www.spigotmc.org/resources/53313
+# 资源页面: https://www.spigotmc.org/resources/53313
 # Discord: https://discord.gg/B4MAJVk
 
-# If you encounter any issues, please report them
-# to the Discord support server or through a private message.
-# Bugs or problems are usually fixed at the next update, if you report them.
-# You can ignore the IDs in some setting names (_<number>).
+# 如果你遇到任何问题, 请通过
+# 论坛私信或Discord支持服务器报告.
+# 收到你的报告的错误或问题通常会在下次更新时修复
+# 你可以忽略某些设置名称 (_Number) 中的ID.
 #
-# If you're looking for a plugin to regenerate chunks at unclaim or wilderness, it's recommended
-# to use the WildRegeneration plugin: https://polymart.org/resource/wildregeneration.2096
-
-
-########################################
-# 基础模式 / BASIC MODE
-########################################
-# 如果启用，Lands 将禁用高级功能，如战争、国家、维护和税收.
-# 注: 启用该选项将会禁用所有高级功能
-# 1.此功能适用于那些只需要使用本插件的声明和信任玩家功能的服务器.
-# 2.此配置项启用后，这些高级功能将无法启用.
-# 3.如果不满足上述情况我们不推荐您启用该配置项.
-# 这些改动需要重载/重启服务器后才能生效
-basic-mode: false
-
-
-########################################
-# 主要功能 / MAJOR FEATURES
-########################################
-# 您可在此快速开关Lands插件的主要功能.
-# 这些改动需要重载/重启服务器后才能生效
-features:
-  # 可在本文件upkeep部分配置该配置项.
-  upkeep: true
-  # 可在本文件的upkeep部分配置税收配置.
-  taxes: true
-  # 外交系统
-  # 领地和国家可以是盟国/中立国/敌国关系.
-  # 如果禁用该功能，所有现有的外交关系都将被删除.
-  # 此功能与战争结合使用时非常有用，不过您也可以在禁用战争的情况下使用它.
-  relations: true
+# 如果你正在寻找一个能在未声明区域和荒野区域中重新生成区块,
+# 可使用插件 WildRegeneration : https://polymart.org/resource/wildregeneration.2096
 
 
 # 全局选项
 general:
-  # 玩家可以进行领地声明的世界.
-  # 此列表还支持设置一个可选的玩家在世界中能够声明的高度.
-  # 例如: world:30:256 -> 这将配置世界 'world' 的可声明高度为 30 到 256.
-  # 注意: 管理员领地的可声明高度将始终为最大值.
-  # 注意: 这项设置需要服务器重载/重启.
-  claim-worlds_list:
-    - 'world'
-
   # 默认值: English (en-US) - 无需下载.
   # 你可以从Discord社区获取维护的翻译: https://discord.gg/B4MAJVk
   # 如果要获取除 en-US 以外的翻译, 请在Discord服务器执行指令 /translate
   # 使用的翻译的名字应与官方语言代码对应 (https://www.oracle.com/java/technologies/javase/jdk8-jre8-suported-locales.html).
   # 这个选项同样影响货币格式和小数分隔符.
   language: 'zh-CN'
-
-  # 是否编辑当前所处的领地而不是通过指令 /lands edit 选择的领地?
-  # 对于声明指令 /lands claim 你仍需要使用 /lands edit 选择领地.
-  edit-by-loc: false
-
-  # If enabled, limit permissions will be combined instead of just taking the highest value.
-  # Example: A player has the permission lands.chunks.5 and lands.chunks.2.
-  #          If enabled: This will result in a limit of 7 chunks.
-  #          If disabled: This will result in a limit of 5 chunks.
-  permission-stacking: false
-
-  # 给予第一次加入的玩家的物品.
-  # 如果不需要此功能请将将槽位或物品数量设置为小于 1 的值.
-  # 但这样做并不能完全禁用这些物品.
-  # 如需完全禁用这些物品青查看指导: https://github.com/Angeschossen/General/wiki/GUI-Menus#disable-items
-  first-join-items:
-    # 用于创建选区、声明、放弃声明或划分选区的工具.
-    selection:
-      # 将slot值或amount之设置为小于 1 的值，将不会在首次加入时提供对应的物品.
-      slot_4: 1
-      amount: 1
-      # 如果禁用，玩家将无法使用该道具.
-      usage: true
-    # 该工具将向玩家发送使用该工具时指针指向的位置的 /lands view 信息.
-    info:
-      slot_5: 2
-      amount_2: 1
-      usage_2: true
-    # 营地物品也可以通过指令 /lands admin give <玩家> camp <数量> <半径> [silent]
-    # 如需获取更多有关营地部分的信息在配置文件中查看 "camp" 部分.
-    camp:
-      slot_6: 3
-      amount_3: 1
-      usage_3: true
-    # 声明方块可以永久性的声明被放置位置的所属区块, 直到玩家取消对区块的主权声明.
-    claim_block:
-      slot_7: 4
-      amount_4: 1
-      usage_4: true
-
   # 是否强制使用默认语言? 这将使语言文件无法更改, 并将始终使用默认值.
   # 这将始终用默认字符串替换现有字符串.
   # 仅当你的语言与 "en-US" 匹配时, 才应使用此选项.
@@ -111,32 +34,69 @@ general:
   # ss: 秒
   # 注意: 这些设置需要重载/重启服务器.
   date-format:
+    # 邀请等功能使用的全局格式.
+    # 24小时格式:
+    # MM/dd/yyyy HH:mm:ss
+    general: 'yyyy/MM/dd hh:mm'
+    # 领地菜单中新消息 (日志) 显示的时间格式.
+    inbox: 'MMMMM dd'
     # 设置日期文本输出的时区.
     # 例如: America/Los_Angeles 或 GMT-8:00
     # 时区列表: https://timezonedb.com/time-zones
     # 如果此处为空, 将使用运行服务器的计算机的时区.
-    time-zone: 'Asia/Shanghai'
-    # 邀请等功能使用的全局格式.
-    # 24小时格式:
-    # MM/dd/yyyy HH:mm:ss
-    general: 'yyyy/MM/dd hh:mm a'
-    # 领地菜单中信箱 (日志) 显示的时间格式.
-    inbox: 'MMMMM dd'
-    # 仅用于时间显示
-    # 24小时格式:
-    # MM/dd/yyyy HH:mm:ss
-    time_2: 'hh:mm a'
+    time-zone: 'UTC-08:00'
+
+  # 玩家可以进行领地声明的世界.
+  # 此列表还支持设置一个可选的玩家在世界中能够声明的高度.
+  # 例如: world:30:256 -> 这将配置世界 'world' 的可声明高度为 30 到 256.
+  # 注意: 管理员领地的可声明高度将始终为最大值.
+  # 注意: 这项设置需要服务器重载/重启.
+  claim-worlds_list:
+    - 'world'
+
+  # 是否编辑当前所处的领地而不是通过指令 /lands edit 选择的领地?
+  # 对于声明指令 /lands claim 你仍需要使用 /lands edit 选择领地.
+  edit-by-loc: false
+
+  # 给予第一次加入的玩家的物品.
+  # 如果不需要此功能请将将槽位或物品数量设置为小于 1 的值.
+  # 但这样做并不能完全禁用这些物品.
+  # 如需完全禁用这些物品青查看指导: https://github.com/Angeschossen/General/wiki/GUI-Menus#disable-items
+  first-join-items:
+    # 用于创建选区、声明、放弃声明或划分选区的工具.
+    selection:
+      # 在选择模式下 (/lands selection)? 是否移除玩家的盔甲?
+      remove-armor: false
+      slot_4: 1
+      amount: 0
+    # 该工具将向玩家发送使用该工具时指针指向的位置的 /lands view 信息.
+    info:
+      slot_5: 2
+      amount_2: 0
+    # 营地物品也可以通过指令 /lands admin give <玩家> camp <数量> <半径> [silent]
+    # 如需获取更多有关营地部分的信息在配置文件中查看 "camp" 部分.
+    camp:
+      slot_6: 3
+      amount_3: 0
+    # 声明方块可以永久性的声明被放置位置的所属区块, 直到玩家取消对区块的主权声明.
+    claimblock:
+      slot_7: 4
+      amount_4: 0
+
 
   # 设置所有经济相关内容显示消息的格式.
   # 注释: https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html
   # 注意: 这项设置需要重载/重启服务器
   eco-format:
-    # 若为物品经济或玩家经济，可设置为: "# gold ingot(s)" or "# experience"
-    normal: '$#,##0.00'
+    normal: '￥#,##0.00'
     # 如果值低于1000, 则简写格式将使用正常格式替代显示.
     # 如果值大于或等于1000, 则返回的 {value} 值将除以 1000.
-    # 此格式仅适用于少量信息..
-    short: '${value}k'
+    # 此格式适用于在空间不大的情况下使用，例如flag标致
+    # 该配置项将以下属格式转换余额数据
+    # 1000000000 = 1B whereas {value} = 1 and {unit} = B
+    # 1000000 = 1M
+    # 1000 = 1k
+    short-unit: '￥{value}{unit}'
 
   # 通过玩家在你的服务器上的游玩事件发放奖励.
   # 注释: https://github.com/Angeschossen/Lands/wiki/Playtime-Rewards
@@ -167,76 +127,7 @@ general:
       support: 0
 
   # 是否当有新的可用更新时通知拥有权限 (lands.admin) 的玩家?
-  upd-notify: false
-
-
-# 经济任务的全局选项, 适用于税收、维护费用和国家维护费用.
-# 每项任务都有自己的部分, 在这个文件和 nations.yml 文件中,带有指定的选项.
-economic:
-  # 默认配置: 税收, 维护费用和国家维护费用将在每天午夜时分收取.
-  interval:
-    # 在午夜收取税、维护费用和国家维护费用.
-    # 格式: 24 小时格式.
-    time: '24:00:00'
-    # 设置每次付款之间的间隔天数.
-    # 设置为 1 没有任何影响.设置为 2 会将使其每隔 "时间" (如上所述) 执行.
-    # 示例: 2 = 每隔2天在这个部分顶部指定的时间执行.
-    days_2: 1
-    # 设置玩家尝试更改税费或维护费用与下一次进行费用收集之间的最短间隔时间.
-    change-cooldown_time: 12h
-    # 如果领地或国家的资金不足以支付维护费用, 它们将会收到通知
-    # 默认预设: 如果领地/国家的资金不足以支付维护费用, 则在收取维护费用前5小时发送提醒
-    insufficient-altert_time: 5h
-
-
-# 领地维护费用 (该功能可在"features"模块处关闭)
-# Upkeep = 领地每隔一段时间以保留其已声明领土所需支付的款项.
-# Taxes = 受领地信任的玩家按照规定时间需要向领地缴纳的税款.
-upkeep:
-  # 应该为每一个区块支付多少钱?
-  # 注意: 最终支付金额应该为 领地尺寸大小 (区块) * 花费
-  per-chunk: 3.0
-  # 是否应该删除领地无法负担维护费用的最后几块已声明区块?
-  # 示例: 领地拥有10个已声明区块, 但其只能支付其中6个区块的维护费用, 因此, 最后声明的6个区块将被删除.
-  # 这将在每此维护费用缴纳时持续实行, 直至领地没有已声明区块为止.
-  unclaim: false
-  # 是否将最近时间创建的领地排除在维护费用缴纳的领地列表之外?
-  # 如果领地所有者/领地银行没有足够的资金(币且启用了区块删除), 这将放置最近创建的领地被删除区块.
-  # 因此, 只有创建时间超过 x 秒的领地需要支付日常维护费用, 创建时间不超过 x 秒的领地无需支付维护费用.
-  # 时间单位为秒.
-  nopay_time: 2d
-  # 领地资产不足缴纳维护费用时提示那些可以将钱存入领地的领地成员关于即将到来的领地维护费用缴纳的持续时间.
-  # 这将有助于你的玩家追随领地而不是在这个失去在这个国家的声明或成员资格.
-  upkeep-reminder_time: 1h
-
-
-# 税收设置 (该功能可在"features"模块处关闭)
-# Taxes = 受信任的玩家按照规定的时间间隔需要缴纳的规定税款.
-# Rent = 玩家无需获得信任就可以租用自己选择的区域, 他们可以决定要租用多久.
-taxes:
-  # 设置最小税额的值.
-  min_2: 0
-  # 设置单个区域的最大税值 (如果领地没有子区域, 则将使用默认区域)
-  max_3: 10.0
-  # 如果一个领地的成员不能纳税, 则该玩家将被领地解除信任?
-  untrust-member: true
-  # 向玩家通知即将需要缴纳的税款.
-  # 将此处设置为 0 以禁用该功能.
-  taxes-announcement_time: 2h
-
-
-
-# 全局传送设置
-# 指令特定的传送选项可以在各自的部分中找到.
-teleport:
-  # 全局传送费用. 某些功能可能具有特定选项, 这些选项会覆盖这项设置.
-  costs_9: 0
-  # 将第一次加入服务器的玩家的传送花费设置为 0 的持续时间.
-  # 你可以在这里设置一个时间跨度. 示例: 1d = 23小时前加入服务器的玩家在期间不用支付任何传送费用.
-  first-join_time: 2h
-  # 等待时间
-  # 时间单位: 秒
-  wait: 3
+  upd-notify: true
 
 
 # 领地设置
@@ -249,14 +140,7 @@ land:
     force: false
     # 创建一个领地的费用 (/lands create).
     # 注意: 者害包括一个区块声明, 将在领地创建时自动声明.
-    # Wiki: https://github.com/Angeschossen/Lands/wiki/Permissions#numbered-permissions
-    costs: 0.0
-    mainblock:
-      # 切换新主方块的位置，这个不会删除现有的主方块.
-      # 不过，您可以手动删除现有的主方块.
-      enabled_3: true
-      # 创建土地后存放主方块的成本.
-      reposition-costs: 0
+    costs: 4000.0
     # 最大领地名称长度
     # 最大可输入的长度为 80 (包括颜色代码).
     # 如何过滤不良名称: https://github.com/Angeschossen/General/wiki/Messages#filter-swear-words-and-forbidden-names
@@ -271,161 +155,146 @@ land:
     # 在领地创建中声明一定半径范围内的区块. 这些初始进行的领地声明不会造成任何费用.
     # 注意: 0 = 仅声明玩家当前所在的区块.
     # 注意: 这个值不能高于你服务器设置的视距.
-    claim-radius: 1
+    claim-radius: 0
 
   # 设置所有者不同的领地之间的最小距离 (16格).
   # 这可以防止其他领地的所有者直接在你的领地的边界附近声明主权.
   chunk-distance: 1
-
-  # Force lands to claim near their claims.
+  # 强制领地只能在其已声明区块接壤的敌方声明领地.
   force-near:
     enabled_2: true
-    # Should claim attempts that would violate the force-near restrictions be treated as new lands?
+    # 强制领地只能在 thWGeir 声明的区域附近进行声明.
+    # 如果禁用此选项: 玩家可以领取有限数量的不接壤领土的主权声明权.
+    # 此数量通过权限 lands.parts.<数量> 进行限制.
     treat-as-new: true
-  # Chunk claiming by placing a special claim block.
-  # You can give claimblocks by executing the command /lands player <player> give claimblock [amount]
-  # If you don't want your players to claim via command, just
-  # don't give them lands.command.claim.
-  # If you don't want your players to claim with claimblocks,
-  # just don't give them claimblocks.
+  # 通过放置一个特殊的声明方块对区块进行声明.
+  # 你可以通过执行指令 /lands admin give <玩家名称> claimblock [数量] 给予玩家指定数量的声明方块
+  # 如果你不想让你的玩家通过指令声明领地,
+  # 就不要给予他们权限 lands.command.claim
+  # 如果你不想你的玩家使用声明方块进行领地声明,
+  # 就不要给予他们领地方块.
   claimblock:
-    # Should only the owner of the claim block be able to use it?
-    # NOTE: If disabled, players could give claimblocks to other players which then can use these claimblocks too. Also if enabled again in the future,
-    # already given claimblocks could still be used by everyone.
+    # 是否只有声明方块的原主人才能使用方块?
+    # 注意: 如果禁用该功能, 玩家将可以给予其他玩家声明方块, 其他玩家也可以使用这些声明方块.
+    # 此外, 如果将来重新开启该功能,已经给予他人的声明方块仍然可以被其他人使用.
     only-owner: true
-    # Should claimblocks not count towards the lands.chunks.<number> permission?
-    ignore-max: true
+    # 是否应该让声明方块不受权限 the lands.chunks.<数量> 的声明区块上限的数量限制?
+    ignore-max: false
 
-  # Landspawn settings
+  # 领地出生点设置
   spawn:
-    # Creation settings (/lands setspawn)
+    # 创建设置 (/lands setspawn)
     creation:
-      # Automatically set land spawn on land creation (/lands create)?
-      # NOTE: The spawnpoint can always be changed with /lands setspawn.
+      # 是否在领地创建时自动设置领地出生点 (/lands create)?
+      # 注意: 出生点只能通过指令 /lands setspawn 改变.
       auto: true
-      # Costs
+      # 花费
       cost:
-        # Cost for first time set
+        # 初次设置的花费
         set: 0.0
-        # Cost for changing spawn
-        change: 0.0
+        # 修改出生点的花费
+        change: 400.0
 
-    # Teleportation settings
+    # 传送设置
     teleport:
-      # Cost for teleportation to a land spawn, if the player is not trusted in the land.
-      # Players will only pay the cost, if they're not trusted in the land.
+      # 传送到一个领地出生点所需的费用.
+      # 领地将在玩家进行传送后获得其中的传送费用.
       costs:
         value_3: 0.0
-        # Should the cost of teleportation be given to the land?
+        # 是否将传送的费用给予领地?
         give-land: false
-      # Cooldown for teleportation to a land spawn, if a player is trusted in the land.
-      # This cooldown won't apply to players that aren't trusted in the land.
+      # 领地出生点的传送冷却时间.
+      # 注意: 时间单位为秒
       spawn-cooldown_time: 0s
-      # Teleport a player to the land spawn after they died?
+      # 在玩家死亡重生时将其传送到领地出生点.
       re-spawn: true
 
-  # Rent/sell areas settings - Wiki: https://github.corent:m/Angeschossen/Lands/wiki/Rent-System
-  # Rent = The players can rent a area of their choice without needing to get trusted. They can decide how long they want to rent it.
-  # Taxes = Trusted players pay a defined amount of tax per defined interval.
-  # If rent or sell is disabled, players with the permission "lands.admin.disabled-features" can still setup areas for rental.
+  # 出租/出售区域设置 - Wiki百科页面: https://github.corent:m/Angeschossen/Lands/wiki/Rent-System
+  # Rent = 其他玩家可以租用自己选择的区域, 且无需获得信任, 他们可以决定要租用多久.
+  # Taxes = 受信任的玩家按规定的时间间隔缴纳的规定的税款.
   rent:
-    # Allow your players to set sub areas available for rent?
+    # 是否允许玩家设置子区域的出租?
     rent: true
-    # Allow your players to sell sub areas or their whole land?
+    # 是否允许玩家出售子区域或他们的整个领地?
     sell: true
-    # Should rent transactions be sent to the land bank?
-    # NOTE: This will only take effect, if banks are generally enabled (option: enabled_13).
-    # If disabled the transaction will be sent to the owners personal account.
+    # 出租交易的钱款是否应该打到领地银行中?
+    # 注意: 仅当银行功能处于启用状态时 (选项: enabled_13), 此选项才会生效.
+    # 如果禁用该选项则交易的钱款将被打到所有者的个人账户中.
     bank: false
-    # Use holograms instead of signs? If enabled, after setting up the rent or sell sign, the sign will disappear and a clickable hologram will appear.
+    # 是否使用全息文字代替告示牌? 如果启用, 设置出租或出售的告示牌将小时, 并出现可以点击的全息文字.
     holograms: false
-    # Teleportation through the /lands rentlist command.
+    # 通过 /lands rentlist 指令进行传送.
     teleport:
-      # Cost for teleportation to a rentable area.
+      # 传送到可租用区域的花费.
       costs_7: 0.0
-      # Cooldown for teleportation to a rentable area.
+      # 传送到可租用区域的冷却时间.
       rent-tp-cooldown_time: 0s
 
-  # Invite settings
+  # 邀请设置
   invite:
-    # If you disable invites, players can directly trust
-    # other players with /lands trust.
-    # This option requires server reload / restart.
+    # 如果禁用邀请, 玩家可以通过指令 /lands trust
+    # 直接为领地给予其他玩家信任.
+    # 这项改动需要重载/重启服务器后才能生效
     enabled_16: true
-    # Should land owners be able to get trusted to other lands?
-    # If disabled, land owners can't be part of another land, if they own at least one land.
-    invite-owner: false
+    # 领地所有者是否能够收到其他领地的邀请 (/lands trust, /lands accept)?
+    # 注意: 如果禁用该选项, 领地所有者则不能成为另一个领地的成员.
+    invite-owner: true
 
-  # Broadcast settings
+  # 广播设置
   broadcast:
-    # If someone created a new land.
-    # Message: land.create.broadcast
+    # 如果有人创建了一个新的领地是否进行广播?
+    # 广播的消息: land.create.broadcast
     create: true
-    # If someone deleted his land. This broadcast will only be sent, if the land has any claims (this prevents spam).
-    # Message: land.delete.broadcast
+    # 如果有人删除了自己的领地, 且声明尺寸不为空(防止恶意刷屏)时是否进行广播?
+    # 广播的消息: land.create.broadcast
     delete: true
 
-  # Settings for /lands chat
+  # 领地聊天设置 /lands chat
   chat:
-    # Should /lands chat messages be forwarded to console?
+    # 是否应将领地聊天 /lands chat 的消息转发到控制台?
     forward: false
-    # Should global chat be muted for a player if they have /lands chat toggle enabled?
-    # NOTE: This setting required server reload / restart.
+    # 如果玩家启用了/lands chat 是否隐藏全局聊天?
+    # 注意: 该设置需要服务器重载/重启.
     mute-global: false
 
-  # Rename settings
-  # Command: /lands rename
+  # 重命名设置
+  # 重命名指令: /lands rename
   rename:
-    # Costs to rename a land.
-    costs_5: 0.0
-    # Cooldown to rename the land.
-    # Bypass permission: lands.bypass.cooldown.rename
+    # 重新命名领地所需的费用.
+    costs_5: 1000.0
+    # 重新命名领地需要等待的冷却时间.
+    # 跳过冷却的权限: lands.bypass.cooldown.rename
     rename-cooldown_time: 15m
 
-  # Fly Settings (Flags can be found in the roles section)
+  # 飞行设置 (可以在角色部分找到相关权限)
   fly:
-    # If you disable flight control, the FLY flag from roles.yml won't have any effect.
+    # 如果禁用飞行控制, 则 roles.yml 中的飞行 FLY 权限不会有任何影响.
     enabled_4: true
-    # Allow players to fly only in
-    # Lands claim worlds (setting: claim-worlds_list)?
-    # Bypass permission: lands.bypass.wilderness.fly
-    # NOTE: This requires server reload / restart.
+    # 是否只允许玩家在
+    # 领地系统允许声明领地的世界中飞行 (世界设置: claim-worlds_list)?
+    # 绕过禁止的权限: lands.bypass.wilderness.fly
+    # 注意: 这项功能需要服务器重载/重启后生效.
     only-claimworld: true
-    # Set the fly deactivation delay if a player is not allowed to fly at this position.
-    # Timeunit: Seconds
+    # 如果玩家不能再这个位置飞行设置的飞行功能停用时间.
+    # 时间单位: 秒
     disable-delay: 3
-    # Set a permission to check before Lands reactivates flight for a player.
-    # Lands only reactivates flight, if Lands previously disabled it for the player and they're now allowed to fly again
-    # at their current location. This permission just adds another requirement, besides the fly role flag.
-    reactivate-perm: ''
 
+  # 设定更换领地所有者的冷却时间. 更改领地所有者也会影响可声明区块数量的限制.
+  # 为了防止有人滥用此功能, 你可以强制冷却. 通过出售领地变更领地所有者,
+  # 同样可以影响冷却时间.
+  owner-cooldown_time: 7d
 
-  # /lands setowner Settings
-  setowner:
-    # Disabling this option will remove the /lands accept and /lands deny command, IF invites are also disabled.
-    enabled_12: true
-    # The land (or the land owner, if banks are disabled) will need to pay this amount in order to set a new owner.
-    # This prevents abusing of ownership transfers in order to bypass limitations.
-    costs_6: 5000.0
-    # Allow the owner of a land to only, if the last owner change was some time ago?
-    owner-change-cooldown_time: 0s
-
-  # If enabled, allows land members to store items in the /lands storage command.
-  # The storage can also be accessed by clicking on the land mainblock's barrel.
-  # WARNING: If you disable this option, all items in the land storages will be deleted.
-  storage: true
-
-  # Delete inactive Lands, if the owner is offline since x days. This task executes every 6 hours.
-  # NOTE: When changing any of these settings, it's recommended to take a backup of the database, in case you misconfigure anything accidentally.
-  #       Otherwise, you're risking irreversible land deletion.
-  # NOTE: These settings require server reload / restart.
+  # 如果所有者从 x 天起一直处于活动状态, 则删除非活跃状态的领地.
+  # 注意: 在更改任何这些设置的时候, 建议先对数据库进行备份, 以防你配置出错,
+  #       否则, 你将面临不可逆转的领地数据流失风险.
+  # 注意: 这项设置需要重载/重启服务器
   expiration:
-    # How long does an owner need to be offline, to be considered inactive?
-    # This option allows you to create different categories of inactive players depending on their playtime.
-    # Format: 'playtime:offline-time'
-    # Playtime is considered the time that they played on the server. The time before Lands was installed is included.
+    # 领地所有者需要离线多长时间才能被是为非活跃状态?
+    # 此选项允许您根据游玩时长创建不同类型的非活跃玩家.
+    # 格式: '游玩时长:离线时长'
+    # 游玩时长时他们在服务器上进行游玩的时长. 包括安装插件Lands之前的时间
     #
-    # Example:
+    # 示例:
     # owner_list:
     #  - '15m:7d'
     #  - '30m:14d'
@@ -434,167 +303,71 @@ land:
     #  - '30d:80d'
     #  - '36525d:365d'
     #
-    # '15m:7d' and '30m:14d' means that land owners that have less than 15 minutes of playtime, will be considered inactive, if they're offline since at least 7 days.
-    # Owners that have more than 15 minutes of playtime and less than 30 minutes will be considered as inactive, if they're offline since at least 14 days.
-    # And so on...
-    # Inactive land owners get, depending on your configuration, either untrusted and a new owner is set or their land get's deleted.
-    # An empty list disables this option.
-    owner_list:
-      - '15m:7d'
-      - '30m:14d'
-      - '12h:30d'
-      - '1d:60d'
-      - '30d:80d'
-      - '36525d:365d'
+    # '15m:7d' 和 '30m:14d' 代表该领地所有者游玩时长低于15分钟, 如果他们已经至少离线了7天时间以上, 则他们将会被视为非活跃状态.
+    # 游戏时间超过15分钟且少于30分钟的领地所有者如果已经离线了至少14天以上, 则他们将会被视为非活跃状态.
+    # 以此类推...
+    # 根据您的配置, 非活跃的领地所有者的领地将会被重新设置所有者且此非活跃玩家会被领地收回信任, 或者他们的领地会被删除.
+    # 列表为空则禁用此功能.
+    owner_list: []
 
-    # How long does a land member need to be offline, to be considered inactive?
-    # Inactive land members get untrusted.
-    member_list: [ ]
+    # 领地成员需要离线多长时间才能被是为非活跃状态?
+    # 非活跃状态的领地成员将被领地收回信任.
+    member_list: []
 
-    # Should an inactive owner be replaced by a land member?
-    # Lands will always try to set the member with the highest role as the new owner.
-    # If there's no member left, the land will be deleted.
+    # 是否让一个非活跃的领地所有者被一名领地成员取代?
+    # 领地 Lands 插件将一直尝试将具有最高角色权限的领地成员设置为新的领地所有者.
+    # 如果该领地中没有其他成员, 则领地将被删除.
     replace-owner: true
-    # Should players, which have been deleted from the servers playerdata folder (primary world), be deleted?
-    # NOTE: It is recommended to keep this disabled. If this is enabled and you delete the playerdata folder in your primary world, it MAY DELETE ALL AFFECTED LANDS depending on your expiration settings.
+    # 是否在因为服务器(主世界)的playerdata文件夹的玩家数据被删除时将玩家从领地系统中一并删除?
+    # 注意: 推荐将此功能保持在禁用状态, 如果启用此选项, 当你删除了主世界的playerdata文件夹时, 可能会删除所有受影响的领地, 这取决与你的过期设置.
     delete-invalid: false
-    # Should lands, which have no claims, be deleted if they're at least x days old?
-    # You can disable this option by using 0.
+    # 是否删除已存在了至少有 x 天但没有已声明领土的领地?
+    # 你可以将此处设置为 0 以禁用该功能.
     no-claims: 0
+    # 如果玩家在领地内死亡，是否应该保留它们物品栏内的物品?
+    keep-inventory: false
 
-  # Specified combat settings which do not affect wars.
+  # 不影响战争的特定战斗设置.
   combat:
-    # Combat tagging
-    tag:
-      # If a player attacks another player, they will by tagged for x (timeunit) so that, regardless of land settings,
-      # other players can attack them.
-      # 0s = disabled
-      tag_time: 0s
-      # Should a player be killed, if they log out while having a combat tag set on them?
+    # 战斗状态标记
+    # 如果一名玩家攻击另一名玩家, 他将标记长达 x (时间单位)
+    # 这样无论领地如何设置其他玩家都能攻击他.
+    # 0s = 禁用该功能
+      tag_time: 15s
+    # 是否允许同一领土成员的玩家之间能够在荒野中进行战斗?
+    # 注意: 这个选项需要服务器重载/重启后才能生效.
       quit-kill: false
-    # Should players, which are members in a common land, be able to fight in wilderness?
-    # NOTE: This option requires server restart / reload.
+    # 作为共同领地上的成员的玩家是否能在荒野区域进行战斗?
+    # 注意: 这项设置需要重载/重启服务器
     ally-wilderness: true
-    # Block village raids if the initiator is not allowed to attack players in the claim?
+    # 是否阻止村庄袭击无法对已声明区域的玩家发起攻击?
     block-raids: true
 
-  # Set claim limits per world.
-  # Example: If you set the permission lands.chunks.5 for your players,
-  # they will be able to claim 5 chunks in each claim world instead of 5 chunks in general.
-  # NOTE: This only applies for claim permissions: lands.chunks.<number>, lands.ownlands.<number>
-  # It is recommended to keep this disabled.
+  # 设置每个世界的声明限制.
+  # 示例: 如果你为你的玩家设置了权限 lands.chunks.5
+  # 他们将能够在每个可声明世界中声明5格区块而不是在所有世界中只能设置总共5个区块.
+  # 注意: 这项功能仅适用于权限节点: lands.chunks.<数量>, lands.ownlands.<数量>
+  # 建议禁用此选项.
   claim-limits-per-world: false
 
-  # Land bank settings (/lands balance)
+  # 领地银行设置 (/lands balance)
   bank:
-    # If enabled, land actions like /lands claim will take the money from the land bank
-    # instead of directly from the player. Disabling this option, will also disable the "/lands deposit" and "/lands withdraw" commands.
-    # NOTE: If you want to disable this option, please make sure your economy plugin supports transactions
-    # for offline players. Otherwise, features such as taxes and upkeep might lead to unexpected results.
-    # NOTE: This setting requires server reload / restart.
+    # 如果启用该功能, 领地行为如领地声明 /lands claim 将消耗领地银行中的资产
+    # 而不是直接从玩家身上扣除余额
+    # 存款指令: /lands deposit
+    # 取款指令: /lands withdraw
+    # 领地资产查看: /lands balance
+    # 注意: 开启后你的玩家需要先将钱存入领地银行之后才能进行领地区块声明.
+    # 注意: 这项设置需要重载/重启服务器
     enabled_13: true
-    # Should players pay with their personal account instead if their land bank does not have enough balance to pay the cost.
-    # This does only involve actions where the player is physically involved, like claiming or setting a land spawn or upkeep.
-    # If true and the player has enough balance on his personal account, this will also send a notice to the player that the balance has been taken from his personal account.
-    fallback: true
-    # Set a maximum balance. Players won't be deposit more than that.
-    # If the value is lower than a land's upkeep, it will automatically be adjusted to the land's upkeep.
-    # Use 0 to disable this option completely.
+    # 如果他们的领地银行没有足够的资产来支付费用, 是否应该让玩家的现金余额进行支付?
+    # 这只涉及玩家实际参与的操作, 比如声明区块或设置领地出生点, 不包括缴纳维护费用.
+    # 如果设置为 true 且玩家的个人账户上有足够的现金余额, 这也会向玩家发送通知告知钱已从个人账户中扣除.
+    fallback: false
+    # 设置最大资产. 玩家将无法存入更多的钱.
+    # 如果数值低于领地的维护费用, 它将自动调整为领地的维护费用.
+    # 使用 0 可完全禁用此选项.
     max-balance: 0
-
-
-# 区块设置(16x16).
-chunk:
-  # 声明一个区块所需的费用.
-  # 领地第一次声明区块的费用永远是免费的.
-  # 注: 拥有lands.free.chunks.<number>权限的玩家可绕过该限制.
-  # Wiki: https://github.com/Angeschossen/Lands/wiki/Permissions#numbered-permissions
-  costs_2: 0.0
-  # 每个区块声明成本的增加.
-  cost-increase:
-    # 可用模式:
-    # Percentage: 百分比模式. 例如, 每次声明在原先声明价格的基础上再加 10% 的成本.
-    # Add: 固定数值模式. 例如每次领地声明一个区块时，就提升 10元 的声明成本
-    # Default: 默认模式. 禁用该选项.
-    mode: 'DEFAULT'
-    value: 2
-    # 设置最大声明费用.
-    # 注意: 将该项设置为 0 以禁用该功能.
-    max_2: 0.0
-  # 退款设置 (放弃区块声明: /lands unclaim)
-  cashback:
-    # 可用模式:
-    # PERCENTAGE: 百分比模式. 例如退还 10% 的购买价格k.
-    # ADD: 固定数值模式. 例如仅归还 10元.
-    mode_2: 'PERCENTAGE'
-    # 如果你使用声明方块 (给予命令/lands admin player <player> give)
-    # 只需该值大于0，即可在取消声明时把声明方块还给目标玩家，前提是该区块已被声明认领.
-    # 将该值设置为 0 以禁用该功能.
-    value_2: 15
-
-  # 区块传送设置
-  teleport:
-    # 传送冷却时间
-    # 绕过限制权限: lands.bypass.cooldown.teleport
-    # 指令: /lands teleport 或在GUI菜单内操作.
-    chunk-tp-cooldown_time: 3m
-    # 单次传送的成本.
-    costs_3: 0
-
-  # Allow claiming only in the initial world, in which the land was created?
-  # This means that a land can only have claims in one world.
-  initial-world: false
-
-  # 站在方块上时自动声明认领区块.
-  auto-action:
-    # 注意: 这些设置需要重载/重启服务器.
-    enabled_14: true
-    # 多长时间后停止自动操作?
-    stop_time: 2m
-
-
-  # 默认权限配置，如需详细配置请前往roles.yml
-  # 可用的landFlags: https://github.com/Angeschossen/Lands/wiki/Land-Flags
-  # 注意: 这些设置需要重载/重启服务器.
-  land-flags:
-    # 新的领地创建时默认分配的权限标记.
-    default_list:
-      - monster_spawn
-      - phantom_spawn
-      - animal_spawn
-      - leaf_decay
-      - plant_growth
-      - snow_melt
-
-    # Natural flags which should be visible in the flags menu.
-    # 默认值: Displays all player related natural flags.
-    display_list:
-      - 'all'
-
-    monster_spawn:
-      # 是否阻止怪物生成?
-      spawners: false
-      # 移除进入禁止怪物生成领地/荒野的动物? (自定义名称的怪物不会被移除)
-      # 注意: 建议禁用此选项，它会导致与第三方生mob插件产生兼容问题，并可能导致服务端性能受到影响.
-      # 注意: 该功能对刷怪笼也会有影响，开启后将无法生成怪物.
-      # 注意: 这些设置需要重载/重启服务器.
-      remove_2: false
-
-    animal_spawn:
-      # 移除进入禁止动物生成领地/荒野的动物? (自定义名称的动物不会被移除)
-      # 注意: 建议禁用此选项，它会导致与第三方生mob插件产生兼容问题，并可能导致服务端性能受到影响.
-      # 注意: 该功能对刷怪笼也会有影响，开启后将无法生成动物.
-      # 注意: 这些设置需要重载/重启服务器.
-      remove_3: false
-
-
-# 子区域设置(是否允许玩家在自己的土地上划分子区域?)
-sub-area:
-  # 是否允许在土地内部使用 `/lands selection` 创建子区域?
-  enabled_22: true
-  # 传送到你土地内的区域的冷却时间.
-  teleport-cooldown_time: 0s
-
 
 # 营地使一种在规定时间后会自动被删除的临时领地.
 # 营地物品只会在玩家第一次加入时提供, 也可以通过执行指令 /lands admin give 来给予玩家
@@ -614,6 +387,164 @@ camp:
   default-name: '{player}的营地'
 
 
+chunk:
+  # 声明一个区块所需的费用.
+  # 领地第一次声明区块的费用永远是免费的.
+  costs_2: 1500.0
+  # 每个区块声明成本的增加.
+  cost-increase:
+    # 可用模式:
+    # Percentage: 百分比模式. 例如, 每次声明在原先声明价格的基础上再加 10% 的成本.
+    # Add: 固定数值模式. 例如每次领地声明一个区块时，就提升 10元 的声明成本
+    # Default: 默认模式. 禁用该选项.
+    mode: 'DEFAULT'
+    value: 2
+    # 设置最大声明费用.
+    # 注意: 将该项设置为 0 以禁用该功能.
+    max_2: 0.0
+  # 退款设置 (放弃区块声明: /lands unclaim)
+  cashback:
+    # 可用模式:
+    # PERCENTAGE: 百分比模式. 例如退还 10% 的购买价格k.
+    # ADD: 固定数值模式. 例如仅归还 10元.
+    mode_2: 'PERCENTAGE'
+    # 将该值设置为 0 以禁用该功能.
+    value_2: 15
+
+  # 区块传送设置
+  teleport:
+    # 传送冷却
+    # 绕过冷却的权限: lands.bypass.cooldown.teleport
+    # 注意: 时间单位为秒
+    chunk-tp-cooldown_time: 3m
+    # 传送一次的费用.
+    costs_3: 15
+
+  # 是否只允许在初始世界也就是领地创建所在的世界中进行声明?
+  # 这意味着一个领地只能在一个世界中进行区块声明.
+  initial-world: false
+
+  # 站在区块上面时自动进行区块声明.
+  auto-action:
+    # 注意: 这项设置需要重载/重启服务器
+    enabled_14: true
+    # 自动声明操作将于多长时间后自动停止?
+    stop_time: 2m
+
+  # 初始权限配置. 可以在 roles.yml 文件中配置角色权限.
+  # 可用领地权限列表: https://github.com/Angeschossen/Lands/wiki/Land-Flags
+  # 注意: 这项改动需要重载/重启服务器后才能生效
+  land-flags:
+    # 配置将用于新的领地创建的默认初始权限.
+    default_list:
+      - monster_spawn
+      - phantom_spawn
+      - animal_spawn
+      - leaf_decay
+      - plant_growth
+      - snow_melt
+
+    # 在权限菜单中可见的初始权限.
+    # 默认: 显示所有与玩家相关的初始权限.
+    display_list:
+      - entity_griefing
+      - tnt_griefing
+      - piston_griefing
+      - monster_spawn
+      - phantom_spawn
+      - animal_spawn
+      - waterflow_allow
+      - fire_spread
+      - leaf_decay
+      - plant_growth
+      - snow_melt
+
+    monster_spawn:
+      # 是否允许刷怪笼方块刷怪?
+      spawners: false
+      # 是否移除禁止怪物生成的领地或荒野上的怪物? 具有自定义名称的怪物不会被移除.
+      # 注意: 建议将该功能保持禁用状态. 该功能可能会导致一些与第三方生物插件的不兼容问题, 并可能由于Minecraft的限制而影响服务器性能.
+      # 注意: 这同样也会移除有刷怪笼生成的怪物.
+      # 这项改动需要重载/重启服务器后才能生效
+      remove_2: false
+
+    animal_spawn:
+      # 是否移除禁止动物生成的领地或荒野上的动物? 具有自定义名称的动物不会被移除.
+      # 注意: 建议将该功能保持禁用状态. 该功能可能会导致一些与第三方生物插件的不兼容问题, 并可能由于Minecraft的限制而影响服务器性能.
+      # 注意: 这同样也会移除有刷怪笼生成的动物.
+      # 这项改动需要重载/重启服务器后才能生效
+      remove_3: false
+
+# 你领地内部的区域的选项
+area:
+  # 传送到你领地的某个区域的冷却时间.
+  teleport-cooldown_time: 0s
+
+
+# 经济任务的全局选项, 适用于税收、维护费用和国家维护费用.
+# 每项任务都有自己的部分, 在这个文件和 nations.yml 文件中,带有指定的选项.
+economic:
+  # 默认配置: 税收, 维护费用和国家维护费用将在每天午夜时分收取.
+  interval:
+    # 在午夜收取税、维护费用和国家维护费用.
+    # 格式: 24 小时格式.
+    time: '24:00:00'
+    # 设置每次付款之间的间隔天数.
+    # 设置为 1 没有任何影响.设置为  2 会将使其每隔 "时间" (如上所述) 执行.
+    # 示例: 2 = 每隔2天在这个部分顶部指定的时间执行.
+    days_2: 1
+    # 设置玩家尝试更改税费或维护费用与下一次进行费用收集之间的最短间隔时间.
+    change-cooldown_time: 12h
+
+
+
+# 税收设置
+# Taxes = 受信任的玩家按照规定的时间间隔需要缴纳的规定税款.
+# Rent = 玩家无需获得信任就可以租用自己选择的区域, 他们可以决定要租用多久.
+taxes:
+  # 可以在 "economic" (经济)部分配置间隔时间.
+  enabled_3: true
+  # 设置最小税额的值.
+  min_2: 0
+  # 设置单个区域的最大税值 (如果领地没有子区域, 则将使用默认区域)
+  max_3: 10.0
+  # 如果一个领地的成员不能纳税, 则该玩家将被领地解除信任?
+  untrust-member: true
+  # 向玩家通知即将需要缴纳的税款.
+  # 将此处设置为 0 以禁用该功能.
+  taxes-announcement_time: 2h
+
+
+# 领地维护费用
+# Upkeep = 领地每隔一段时间以保留其已声明领土所需支付的款项.
+# Taxes = 受领地信任的玩家按照规定时间需要向领地缴纳的税款.
+upkeep:
+  # 注意: 这项设置需要重载/重启服务器
+  enabled_19: true
+  # 应该为每一个区块支付多少钱?
+  # 注意: 最终支付金额应该为 领地尺寸大小 (区块) * 花费
+  per-chunk: 3.0
+  # 是否应该删除领地无法负担维护费用的最后几块已声明区块?
+  # 示例: 领地拥有10个已声明区块, 但其只能支付其中6个区块的维护费用, 因此, 最后声明的6个区块将被删除.
+  # 这将在每此维护费用缴纳时持续实行, 直至领地没有已声明区块为止.
+  unclaim: false
+  # 是否将最近时间创建的领地排除在维护费用缴纳的领地列表之外?
+  # 如果领地所有者/领地银行没有足够的资金(币且启用了区块删除), 这将放置最近创建的领地被删除区块.
+  # 因此, 只有创建时间超过 x 秒的领地需要支付日常维护费用, 创建时间不超过 x 秒的领地无需支付维护费用.
+  # 时间单位为秒.
+  nopay_time: 2d
+  # 领地资产不足缴纳维护费用时提示那些可以将钱存入领地的领地成员关于即将到来的领地维护费用缴纳的持续时间.
+  # 这将有助于你的玩家追随领地而不是在这个失去在这个国家的声明或成员资格.
+  upkeep-reminder_time: 1h
+
+
+# 关系
+relations:
+  # 如果禁用此选项, 将删除所有现有关系.
+  # 注意: 这项设置需要重载/重启服务器
+  enabled_6: true
+
+
 # 玩家设置
 player:
   flags:
@@ -622,13 +553,24 @@ player:
     default_2_list:
       - 'receive_invites'
       - 'enter_messages'
-      - 'show_inbox'
 
     # 配置应在菜单中显示的flag标志.
     # ALL = 显示所有flag标志.
     display_2_list:
       - 'all'
 
+
+# 全局传送设置
+# 指令特定的传送选项可以在各自的部分中找到.
+teleport:
+  # 全局传送费用. 某些功能可能具有特定选项, 这些选项会覆盖这项设置.
+  costs_9: 0
+  # 将第一次加入服务器的玩家的传送花费设置为 0 的持续时间.
+  # 你可以在这里设置一个时间跨度. 示例: 1d = 23小时前加入服务器的玩家在期间不用支付任何传送费用.
+  first-join_time: 0h
+  # 等待时间
+  # 时间单位: 秒
+  wait: 3
 
 # 这是指令 /lands unstuck 的配置.
 # 这个指令的目的是让玩家能够传送出困住他们的地方.
@@ -637,7 +579,6 @@ player:
 unstuck:
   # 设置这个指令的冷却时间.
   unstuck-cooldown_time: 1h
-
 
 # 随机传送 (/lands wild)
 # 使用此选项时, 请确保已使用 /setworldspawn 设置过世界出生点
@@ -675,18 +616,6 @@ random-teleport:
   extensive-check: false
 
 
-# 认领功能介绍
-introduction:
-  # 通知这些玩家直到他们到达设置的游戏时间.
-  # 设置为 0 则禁用该功能.
-  max-playtime_time: 10m
-  # 提醒可以多次发送，但有冷却时间，以防对玩家造成刷屏困扰.
-  reminder:
-    # 在荒野放置容器时，发送放置的容器未受到保护的警告通知.
-    # 注: 只有当玩家不属于任何土地时才会发送.
-    container-placement: true
-
-
 # 音效配置
 # 格式: SOUND:VOLUME:PITCH (音效:音量:音调)
 # 音量和音调参数是可选的, 这将允许你控制音效的播放方式.
@@ -715,8 +644,8 @@ sounds:
   fly-re-enable_sound: 'ITEM_ARMOR_EQUIP_ELYTRA'
 
 
-# 前 10 领地/国家排行榜设置
-# 包括 /lands top, /nations top, 告示牌排行榜和全息文字排行榜
+# 前 10 领地排行榜设置
+# 包括 /lands top, 告示牌排行榜和全息文字排行榜
 top-lands:
   # 如果领地资产大于等于1000, 是否让领地的资产显示时除以1000任何在数字后方加上"k"?
   # 注意: 这项操作也同样会影响 "[...]_balance" 的papi变量.
@@ -741,7 +670,7 @@ top-lands:
     - ''
 
 
-# 可视化显示设置 (/lands view 等)
+# 可视化显示设置
 visualization:
   type:
     # 荒野
@@ -816,9 +745,6 @@ visualization:
     # 领地是否应该在玩家加入时自动显示可视化的领地边界?
     # 注意: 你可以将 duration_9 (下方) 设置为 -1 使可视化范围永久显示.
     join: true
-    # 粒子效果出现间隔.
-    # 最小为值1s (1秒).
-    view-interval_time: 1s
     # 领地预览的持续时间.
     # 时间单位为秒. 你可以将值设置为 -1 来使其永久显示
     duration_9: 60
@@ -852,11 +778,10 @@ visualization:
 
 # 指令设置
 command:
-  # 这是时间奖励和"/lands player <player> give permission chunk"命令都需要它
+  # 这是时间奖励和管理员使用 /lands admin give chunk <玩家名称> 指令所需的设置
   permission-plugin:
     # 你的权限插件的指令可以添加权限.
     # {player} 将会替换为玩家名称.
-    # {uuid} 将会替换为玩家的UUID.
     # {permission} 将会替换为领地系统的权限.
     add: 'Luckperms user {player} permission set {permission}'
     # 你的权限插件的指令可以移除权限.
@@ -866,17 +791,17 @@ command:
   alias:
     # 设置 /lands 指令的简写
     # 注意: 这项设置需要重载/重启服务器
-    lands_list: [ ]
+    lands_list: ["领地"]
 
     # 设置 /Wars 指令的简写
     # 只有在战争功能启用的情况下才能使用该指令.
     # 注意: 这项设置需要重载/重启服务器
-    wars_list: [ ]
+    wars_list: ["战争"]
 
     # 设置 /Nations 指令的简写
     # 只有在国家功能启用的情况下才能使用该指令.
     # 注意: 这项设置需要重载/重启服务器
-    nations_list: [ ]
+    nations_list: ["国家"]
 
   # 禁用指令
   # 指令不区分大小写
@@ -889,7 +814,6 @@ command:
     # 这将影响所有站在领地上的玩家.
     # 绕过权限: lands.bypass.cmd.general
     general_list: [ ]
-
 
 # 领地菜单设置 (/lands menu)
 gui:
@@ -905,25 +829,24 @@ gui:
 # 数据库设置
 database:
   # MySQL 数据库
-  # 如果 MySQL 和 SQLite 被禁用, 领地系统将使用 JSON 文件数据库代替.
+  # 如果您无法使用 MySQL 数据库，请切换为 SQLite 数据库
   # 请在使用 MySQL 数据库之前先阅读这个: https://github.com/Angeschossen/Lands/wiki/Database
   # 如果希望在使用的过程中不出现如连接限制等问题, 需要正确配置 MySQL 中的服务器配置.
   # 不建议将多个拥有领地系统的服务器连接到巨头相同表前缀的同一个数据库中.
   mysql:
     # 注意: 如果启用, 请确保下方的 'sqlite' 选项已禁用.
-    enabled_20: false
-    ip-address: 'localhost'
+    enabled_20: true
+    ip-address: 'database.sharklantis.cn'
     port: '3306'
-    username: 'minecraft'
-    password: 'password'
-    database: 'lands'
+    username: 'db_nets'
+    password: 'UgkG&MsbhojaRWgQ'
+    database: 'db_nw_lands'
 
     # 如果插件与其他插件或领地系统实例共享数据库, 强烈建议设置唯一的表前缀.
     table-prefix: 'lands_'
 
-
   # 你也可以使用 SQLite 数据库. 将会在箱外运行.
-  sqlite: true
+  sqlite: false
 
   # 备份设置
   # 此选项以启用.
@@ -941,7 +864,10 @@ database:
   error-disallow-join: true
 
 
-# 第三方插件集成设置
+# 集成设置
+# 发现缺失? 你可以通过论坛私信或Discord请求集成其他插件的功能.
+# 资源页面: https://www.spigotmc.org/resources/.53313
+# Discord: https://discord.gg/B4MAJVk
 integration:
   # 管理集成
   manager:
@@ -963,16 +889,6 @@ integration:
   # 此选项需要重新加载/重新启动服务器.
   mythicmobs: false
 
-  # 用于vehicles插件的配置项(此配置项不会影响Minecraft原版载具)
-  # 如果启用:
-  # 1.玩家如果缺少对应的权限，则禁止其在土地上放置载具.
-  # 2.允许土地上的其它玩家破坏获取这些载具，即使他们不是载具的拥有者.
-  # 如果禁用，不信任玩家可以在土地上放置载具，而土地成员无法移除这些载具.
-  vehicles: true
-
-  # Lands插件是否应该为设置权限向Luckperms提供权限节点和内容?
-  luckperms-context: true
-
   # 经济设置
   # 如果所有类型都被禁用, 则将使用基于物品的经济模式.
   # 注意: 更改这些选项时, 您可能还需要调整此配置中的 "eco-format" 选项.
@@ -992,8 +908,6 @@ integration:
       # 不仅仅是相同类型的物品或具有相同模型数据 model-data 的物品.
       strict: false
 
-
-# 这部分配置可按需修改，但非必要请勿修改.
 entities:
   # 你可以在此处指定哪些实体应被是视为动物或怪物.
   # 这会影响插件的所有部分, 包括这些实体组.
@@ -1003,14 +917,9 @@ entities:
   monsters_list:
     - 'default'
 
-
 # 配置日志记录
 logging:
   # 领地系统是否应该记录领地系统API中的事件取消?.
   # 例如他们可以取消声明 (/lands claim), 这将导致命令没有响应 (除非他们发送响应).
   # 通过启用此选项你可以随时检查第三方插件是否取消了该操作.
   debug: false
-
-dev:
-  # 禁用从 Mojang API 获取菜单中的头颅皮肤和玩家的头颅皮肤。
-  disable-skins: false
