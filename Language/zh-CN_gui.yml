@@ -4,9 +4,6 @@
 # Discord: https://discord.gg/B4MAJVk
 #
 # Wiki: https://github.com/Angeschossen/General/wiki/GUI-Menus
-#
-# Lands - zh-CN
-# Translate by chencu
 
 general:
   wYes: '&a是'
@@ -920,26 +917,26 @@ gui:
         mainblock_reposition:
           material: BELL
           slots: 45
-          name: '&c&lRemove Mainblock'
+          name: '&c&l移除主方块'
           lore:
-          - '&8✖ &7Remove or reposition the mainblock.'
-          - '   &7Placing it again costs:&c {cost}'
+          - '&8✖ &7移除或重新定位主方块'
+          - '   &7重新放置需花费:&c {cost}'
         mainblock_set:
           material: BELL
           slots: 45
-          name: '&a&lPlace Mainblock'
+          name: '&a&l放置主方块'
           lore:
-          - '&8✖ &7Place the mainblock at your current position.'
-          - '   &7Cost:&c {cost}'
+          - '&8✖ &7在当前位置放置主方块'
+          - '   &7费用:&c {cost}'
         child_failure_mainblock_claim:
-          name: '&4&lNeeds to be placed inside Land'
+          name: '&4&l需放置在领地内'
           lore:
-          - '&8✖ &cThe mainblock must be placed inside the land.'
-          - '&7Please make sure you stand in the land&2 {land}&7.'
+          - '&8✖ &c主方块必须放置与您的领地内.'
+          - '&7请确保您位于领地 &2{land} &7的区域范围内.'
         child_failure_mainblock_space:
-          name: '&4&lNot enough Space'
+          name: '&4&l没有足够的空间'
           lore:
-          - '&8✖ &cThere''s not enough space to place it at your current location.'
+          - '&8✖ &c您目前的位置没有足够的空间放置它.'
       patches:
         basic:
           stats:
@@ -1109,11 +1106,11 @@ gui:
           - '   &7已解锁: {unlocked}'
         entry_wither_attack_animal:
           material: skin:886dc0cfcaeecfe1ab69146e4d4f1190837076a67dec135fabda6271f375d01f
-          name: '&6&lWither attacking Animals: {enabled}'
+          name: '&6&l凋零攻击伤害动物: {enabled}'
           lore:
-          - '&8✖ &7Should withers be able to damage animals?'
-          - '    &8• &7They can always damage other monsters.'
-          - '   &7Unlocked: {unlocked}'
+          - '&8✖ &7凋零是否攻击是否可以伤害动物?'
+          - '    &8• &7此配置只适用于动物，不适用于怪物'
+          - '   &7已解锁: {unlocked}'
   list_role_settings:
     title: '&8权限管理'
     items:
@@ -1444,9 +1441,10 @@ gui:
           - '   &7意外剥夺自己的权限'
           name: '&4&l所有者角色'
         child_failure_allow-edit:
-          name: '&4&l标记不可切换'
+          name: '&4&lFlag not Toggleable'
           lore:
-          - '&c该角色权限标记已被服务器配置为不可切换'
+          - '&cThe server configured this flag'
+          - '&cto not be toggleable for this role.'
   war-declaration_tribute:
     title: '&8赔款'
     items:

@@ -356,6 +356,8 @@ help:
         auto: '[T]&e{parent} {subcmd} &8- &7Unclaim while moving[H]&7This will unclaim
           all chunks that you enter, while moving. Click to execute.[/H][C]{fullcmd}[/C][/T]'
         all: '[T]&e{parent} {subcmd} &8- &7Unclaim all chunks[H]&7Click to copy.[/H][SC]{fullcmd}[/SC][/T]'
+        radius: '[T]&e{parent} {subcmd} {args} &8- &7Unclaim radius[H]&7Unclaim all
+          chunks in a specified radius. Click to copy.[/H][SC]{fullcmd}[/SC][/T]'
       delete: '[T]&e{parent} delete {args} &8- &7Delete land[H]&7Click to copy.[/H][SC]{fullcmd}[/SC][/T]'
       trust: '[T]&e{parent} {subcmd} {args} &8- &7Trust player[H]&7Use * as the area
         name to trust the player to the whole land. &7Click to copy.[/H][SC]{fullcmd}[/SC][/T]'
@@ -1486,6 +1488,8 @@ lands:
           already: '&7{target} &7isn''t an ally of {object}&7.'
           revoked: '&7You &8(&7{object}&8) revoked the ally offer for {target}&7.'
           broadcast: '&7{object} &7and {target} &7are no longer allies.'
+          success: '&7Successfully removed {target}&7 from your allies. You &8(&7{object}&8)
+            are no longer allied with them.'
       enemies:
         add:
           already: '&7{target} &7is already an enemy of {object}&7.'

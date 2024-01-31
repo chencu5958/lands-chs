@@ -4,9 +4,6 @@
 # Discord: https://discord.gg/B4MAJVk
 #
 # Wiki: https://github.com/Angeschossen/General/wiki/Messages
-#
-# Lands - zh-CN
-# Translate by chencu
 
 general:
   prefix:
@@ -200,8 +197,7 @@ general:
         nation: '&c国家 {0} 的首都资产未能支付国家维护费用 {1}, 导致国家已被删除.'
         alert:
           normal: '&c你需要支付&4 {0}&c 的维护费用，用于 {1}，但 {2} 没有足够的资金.'
-          unclaim: '&c你需要支付&4 {0}&c 的维护费用，用于 {1}，但 {2} 没有足够的资金..
-           &7这会导致一些最新声明的区块恢复未声明状态，请务必存入一些资金，防止这样的情况发生.'
+          unclaim: '&c你需要支付&4 {0}&c 的维护费用，用于 {1}，但 {2} 没有足够的资金.. &7这会导致一些最新声明的区块恢复未声明状态，请务必存入一些资金，防止这样的情况发生.'
       bank:
         withdraw: '&c玩家 {0} 取款 {1}，当前资产: {2}'
         deposit: '&7玩家 {0} 存款 {1}，当前资产: {2}'
@@ -343,6 +339,8 @@ help:
         auto: '[T]&e{parent} {subcmd} &8- &7移动的同时取消区块的主权声明[H]&7这将取消你移动过程中走进的所有区块的主权的声明.
           点击执行[/H][C]{fullcmd}[/C][/T]'
         all: '[T]&e{parent} {subcmd} &8- &7取消所有区块的主权声明[H]&7点击复制[/H][SC]{fullcmd}[/SC][/T]'
+        radius: '[T]&e{parent} {subcmd} {args} &8- &7Unclaim radius[H]&7Unclaim all
+          chunks in a specified radius. Click to copy.[/H][SC]{fullcmd}[/SC][/T]'
       delete: '[T]&e{parent} delete {args} &8- &7删除领土[H]&7点击复制[/H][SC]{fullcmd}[/SC][/T]'
       trust: '[T]&e{parent} {subcmd} {args} &8- &7信任玩家[H]&7使用 * 作为填写的区域名称, 将给予该玩家在所有领地的信任.
         &7点击复制[/H][SC]{fullcmd}[/SC][/T]'
@@ -689,8 +687,8 @@ lands:
           : &a{land} &8[&f点击&8][H]&7点击显示该区域范围.[/H][C]lands view here[/C][/T]\n &8•\
           \ &7区域: &6{area}\n &8• &7租户: &3{player}\n &8• &7租期:&5 {left}\n &8• &8租金\
           : &e每 {time} 花费 {cost} \n&7&m━━━━━━━━━<━&r &5&l租用信息 &7&m━>━━━━━━━━━\n"
-        time: '&cYou can''t add any more time to your rental of area&4 {area}&c. &7The
-          land&2 {land} &7configured a maximum of&5 {max} &7in total.'
+        time: '&c无法继续为区域 &4{area} &c延长租期，&7您的租期到达了领地&2 {land} &7的最大租期时长上限&5 {max}
+          &7.'
       cancel:
         success: '&7Y你取消了区域 &6{area} &7的租用. 你不能再进入这个区域了'
       remove:
@@ -823,7 +821,7 @@ lands:
             [T]&7✖ 声明选区: &3/selection &8[&f点击&8][C]lands selection[/C][H]&7点击此处声明选区中的区块的领地主权.[/H][/T]
             [T]&7✖ 信任玩家: &3/trust &8[&f点击&8][SC]lands trust [/SC][H]&7点击复制[/H][/T]
         camp: '&7你在当前所处位置创建了营地&b {land}&7. &7花费&c {cost}&7. 营地无法扩建, 将在&5 {time} &7后到期.'
-      broadcast: '&7Land&2 {land} &7was created by&3 {player}&7.'
+      broadcast: '&7玩家 &3{player} &7创建了领地 &2{land}'
     rename:
       success: '&7成功为领地&b {land} &7设置了新名称&3 {name}&7. 花费&c {cost}&7.'
     edit:
@@ -852,7 +850,7 @@ lands:
           &7选择已完成: 现在可执行以下操作:
             [T]&7✖ 声明主权: &e/claim &8[&f点击&8][H]&7点击此处声明选区的领地主权.[/H][C]lands claim[/C][/T]
             [T]&7✖ 放弃主权: &e/unclaim &8[&f点击&8][H]&7点击此处放弃选区的领地主权.[/H][C]lands unclaim[/C][/T]
-            [T]&7✖ Subarea: &e/assign &8[&f点击&8][H]&7将该选区分配给一个区域.[/H][SC]lands assign <area>[/SC][/T]
+            [T]&7✖ 子区域: &e/assign &8[&f点击&8][H]&7将该选区分配给一个区域.[/H][SC]lands assign <area>[/SC][/T]
         not-complete: '&c选择未完成. &7请确保第一位置和第二位置都已设置. [T]&7你可以通过执行指令 &e/lands selection
           切换选区模式&8[&f点击&8][H]&7点击此处切换选区模式.[/H][C]lands selection[/C][/T]'
         disabled: '#t#&6选区模式[newline]&c已禁用'
@@ -1184,6 +1182,7 @@ lands:
           already: '&7{target} &7与 {object} &7不是盟友关系.'
           revoked: '&7我方 &8(&7{object}&8) 撤回了与 {target} &7的结盟请求.'
           broadcast: '&7{object} &7和 {target} &7已结束联盟关系.'
+          success: '&7已成功和 {target}&7 结束了盟友关系，您 &8(&7{object}&8) 将和对方不再是联盟。'
       enemies:
         add:
           already: '&7{target} &7已经和 {object} &7是敌对关系了.'
@@ -1433,8 +1432,8 @@ nations:
         &7国家 &6{nation} &7邀请你的领地&b {land} &7加入他们.
           [T]&a✔ 接受 &8[&f点击&8][H]&7点击此处接受这条邀请.[/H][C]nations accept {nation}[/C][/T]
           [T]&c✘ 拒绝 &8[&f点击&8][H]&7点击此处拒绝这条邀请.[/H][C]nations deny {nation}[/C][/T]
-      max-distance: '&cThe land&4 {land} &cis too far away from the capital of nation&4
-        {nation}&c. &7Max:&3 {max} block(s)&7, actual distance:&3 {distance} block(s)&7'
+      max-distance: '&c领地&4 {land} &c距离国家 &4{nation} &c首都过远. &7上限:&3 {max} 方块&7，当前距离:&3
+        {distance} 方块&7。'
     accept:
       war: '&c你现在暂时不能加入这个国家，&7国家 &6{nation} &7当前正卷入一场与 {object} 的战争，请等待他们的战争结束后再试.'
       none: '&c你的领地 &4{land} &c未收到来自国家 &6{nation} &c的邀请，&7他们可以通过指令 &e/nations trust
